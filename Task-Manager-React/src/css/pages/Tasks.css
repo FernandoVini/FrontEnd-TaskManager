@@ -1,0 +1,67 @@
+.user-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
+    transition: .2s;
+}
+
+.user-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.user-info {
+    margin: 8px 0;
+    font-size: 17px;
+    color: #444;
+}
+
+.user-info strong {
+    color: #2f8f52;
+}
+
+.register-card input:not([type="radio"]):not([type="checkbox"]), 
+.register-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    outline: none;
+    transition: .2s;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.status-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #2f8f52;
+}
+
+.status-container label {
+    font-size: 16px;
+    color: #444;
+    cursor: pointer;
+}
+
+.status-yes {
+    color: #2f8f52;
+}
+
+.status-no {
+    color: #888;
+}
