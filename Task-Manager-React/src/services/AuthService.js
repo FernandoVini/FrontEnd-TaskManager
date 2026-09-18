@@ -1,13 +1,18 @@
-import api from "./Services";
+import service from "./Services";
 
-export const login = async (email, senha) => {
+export const login = async (userEmail, userPassword) => {
   try {
-    const response = await api.post('/auth/login', { email, senha });
-    const { token, usuario } = response.data;
+    const response = await service.post('/auth/login', { userEmail, userPassword });
+    const token = response.data.token;
+    
+
+    if (!token) {
+      console.error("Token não retornado pela API");
+      return false;
+    }
     
     localStorage.setItem('@TaskManager:token', token);
-    localStorage.setItem('@TaskManager:usuario', JSON.stringify(usuario));
-    
+
     return true;
   } catch (error) {
     console.error("Erro ao fazer login", error);
@@ -15,9 +20,9 @@ export const login = async (email, senha) => {
   }
 };
 
-export const cadastrar = async (nome, email, senha) => {
+export const register = async (userName, userEmail, userPassword) => {
   try {
-    const response = await api.post('/auth/register', { nome, email, senha });
+    const response = await service.post('/auth/register', { userName, userEmail, userPassword });
     return response.data;
   } catch (error) {
     console.error("Erro ao cadastrar usuário", error);

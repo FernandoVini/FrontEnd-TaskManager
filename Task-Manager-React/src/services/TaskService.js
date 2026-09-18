@@ -1,20 +1,25 @@
-import api from "./Services";
+import service from "./Services";
 
-export const getTarefas = async () => {
-  const response = await api.get('/v1/tarefas');
+export const getAllTasks = async () => {
+  const response = await service.get('/tasks/get');
   return response.data;
 };
 
-export const criarTarefa = async (tarefaDados) => {
-  const response = await api.post('/v1/tarefas', tarefaDados);
+export const getUserTasks = async () => {
+  const response = await service.get(`/tasks/get/user`);
   return response.data;
 };
 
-export const atualizarTarefa = async (id, tarefaDados) => {
-  const response = await api.put(`/v1/tarefas/${id}`, tarefaDados);
+export const createTask = async (dataTasks) => {
+  const response = await service.post('/tasks/create', dataTasks);
   return response.data;
 };
 
-export const deletarTarefa = async (id) => {
-  await api.delete(`/v1/tarefas/${id}`);
+export const updateTask = async (id, dataTasks) => {
+  const response = await service.put(`/tasks/${id}`, dataTasks);
+  return response.data;
+};
+
+export const deleteTask = async (id) => {
+  await service.delete(`/tasks/${id}`);
 };

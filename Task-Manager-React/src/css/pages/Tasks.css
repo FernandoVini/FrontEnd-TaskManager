@@ -65,3 +65,9 @@
 .status-no {
     color: #888;
 }
+
+.group-choice {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2%;
+}

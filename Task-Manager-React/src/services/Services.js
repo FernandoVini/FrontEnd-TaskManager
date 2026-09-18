@@ -1,16 +1,20 @@
 import axios from 'axios';
 
-const api = axios.create({
+const service = axios.create({
     baseURL: 'http://localhost:8080',
 });
 
-api.interceptors.request.use(async config => {
+service.interceptors.request.use(config => {
     const token = localStorage.getItem('@TaskManager:token');
 
-    if (token) {
+    if (token && !config.url.startsWith('/auth/')) {
         config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
-});
+},
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
-export default api;
+export default service;

@@ -25,10 +25,25 @@ function Login() {
       <h1 className="register-title">Login</h1>
 
       <form className="register-card" id="formRegister" onSubmit={handleLogin}>
-        {erro && <p style={{ color: "red", textAlign: "center" }}>{erro}</p>}
-        <input type="text" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required  />
-        <input type="password" id="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)}  required />
-        <Button buttonMessage="Entrar" buttontype="submit" />
+        {erro && <p className="erro">{erro}</p>}
+        <input type="text"
+          id="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input type="password"
+          id="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <Button buttonMessage="Entrar"
+          variant="create"
+          buttontype="submit"
+        />
       </form>
     </>
   )

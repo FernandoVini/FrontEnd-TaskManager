@@ -5,10 +5,10 @@ import Tasks from "../pages/Tasks";
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/home"
+      <Route path="/"
         element={<Init />}
       />
-      <Route path="/"
+      <Route path="/home"
         element={<Tasks />}
       />
     </Routes>
